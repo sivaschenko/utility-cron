@@ -1,0 +1,24 @@
+{
+  "name": "sivaschenko/utility-cron",
+  "description": "Cron PHP library",
+  "type": "project",
+  "version": "1.0.0",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Sergii Ivashchenko",
+      "homepage": "http://www.sivaschenko.com/"
+    }
+  ],
+  "require-dev": {
+    "phpunit/phpunit": "4.1.0"
+  },
+  "config": {
+    "use-include-path": true
+  },
+  "autoload": {
+    "psr-4": {
+      "": ""
+    }
+  }
+}

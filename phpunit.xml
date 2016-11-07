@@ -1,0 +1,7 @@
+<phpunit bootstrap="vendor/autoload.php">
+    <testsuites>
+        <testsuite name="Tests">
+            <file>Sivaschenko/Utility/Cron/Test/ExpressionTest.php</file>
+        </testsuite>
+    </testsuites>
+</phpunit>
