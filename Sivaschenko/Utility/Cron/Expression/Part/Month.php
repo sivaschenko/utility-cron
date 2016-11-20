@@ -25,6 +25,7 @@ class Month extends AbstractPart
 
         $number = $this->value - 1;
         $string = date('F', strtotime("January + $number Months"));
+
         return $string ? $string : $this->value;
     }
 

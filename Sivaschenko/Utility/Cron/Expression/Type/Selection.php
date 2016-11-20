@@ -18,17 +18,20 @@ class Selection extends AbstractType
         foreach ($this->parts as $part) {
             $values[] = $part->getVerbalString();
         }
-        return $this->getVerboseList($values) . $this->getFirstPart()->getSuffix();
+
+        return $this->getVerboseList($values).$this->getFirstPart()->getSuffix();
     }
 
     /**
      * @param string $values
+     *
      * @return string
      */
     private function getVerboseList($values)
     {
         $last = array_pop($values);
-        return $this->getFirstPart()->getPrefix() . implode(', ', $values) . ' and ' . $last;
+
+        return $this->getFirstPart()->getPrefix().implode(', ', $values).' and '.$last;
     }
 
     /**
@@ -53,6 +56,7 @@ class Selection extends AbstractType
                 $messages = array_merge($messages, $part->getValidationMessages());
             }
         }
+
         return $messages;
     }
 }

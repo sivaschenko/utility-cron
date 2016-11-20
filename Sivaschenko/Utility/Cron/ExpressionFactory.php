@@ -8,9 +8,10 @@ namespace Sivaschenko\Utility\Cron;
 class ExpressionFactory
 {
     /**
-     * Performs basic value validation and constructs appropriate expression instance
+     * Performs basic value validation and constructs appropriate expression instance.
      *
      * @param string $value
+     *
      * @return ExpressionInterface
      */
     public static function getExpression($value)

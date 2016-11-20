@@ -14,6 +14,7 @@ interface TypeInterface
 
     /**
      * @param string $value
+     *
      * @return bool
      */
     public static function isApplicable($value);

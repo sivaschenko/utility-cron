@@ -11,6 +11,7 @@ class ExpressionTest extends \PHPUnit_Framework_TestCase
 {
     /**
      * @dataProvider expressionProvider
+     *
      * @param $expression
      * @param $expectedString
      */
@@ -28,8 +29,9 @@ class ExpressionTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider invalidExpressionProvider
+     *
      * @param string $expression
-     * @param array $messages
+     * @param array  $messages
      */
     public function testGetValidationMessages($expression, array $messages)
     {
@@ -38,7 +40,7 @@ class ExpressionTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(
             $messages,
             $instance->getValidationMessages(),
-            $expression . ' ' . var_export($instance->getValidationMessages(), true)
+            $expression.' '.var_export($instance->getValidationMessages(), true)
         );
 
         $this->assertFalse($instance->isValid());
@@ -46,6 +48,7 @@ class ExpressionTest extends \PHPUnit_Framework_TestCase
 
     /**
      * @dataProvider exceptionProvider
+     *
      * @param string $expression
      * @param string $exceptionClass
      * @param string $exceptionMessage
@@ -57,7 +60,8 @@ class ExpressionTest extends \PHPUnit_Framework_TestCase
     }
 
     /**
-     * Data provider of valid cron expressions
+     * Data provider of valid cron expressions.
+     *
      * @return array
      */
     public function expressionProvider()
@@ -144,12 +148,13 @@ class ExpressionTest extends \PHPUnit_Framework_TestCase
             ['* * * 1 *', 'At every minute, in January.'],
             ['1,2,3 1-2 5/3 */3 2', 'At 1st, 2nd and 3rd minute, every hour from 1st through 2nd, every 3rd day of month starting from 5th, every 3rd month, on Tuesday.'],
             ['* * * * 2-6', 'At every minute, every day of week from Tuesday through Saturday.'],
-            ['30/5 2-6 ? jan,feb 2#4 2017', 'Every 5th minute starting from 30th, every hour from 2nd through 6th, in January and February, every 4th Tuesday, in 2017.']
+            ['30/5 2-6 ? jan,feb 2#4 2017', 'Every 5th minute starting from 30th, every hour from 2nd through 6th, in January and February, every 4th Tuesday, in 2017.'],
         ];
     }
 
     /**
-     * Data provider of invalid cron expressions
+     * Data provider of invalid cron expressions.
+     *
      * @return array
      */
     public function invalidExpressionProvider()
@@ -183,12 +188,13 @@ class ExpressionTest extends \PHPUnit_Framework_TestCase
             ['/2 * * * * *', ['Missing first part of "increment" expression ("/2")']],
             ['2, * * * * *', ['Comma separated list "2," contains empty items or unnecessary commas!']],
             [',2 * * * * *', ['Comma separated list ",2" contains empty items or unnecessary commas!']],
-            ['2- * * * * *', ['Missing second part of "range" expression ("2-")']]
+            ['2- * * * * *', ['Missing second part of "range" expression ("2-")']],
         ];
     }
 
     /**
-     * Data provider of Exception::__construct() arguments that result into \InvalidArgumentException
+     * Data provider of Exception::__construct() arguments that result into \InvalidArgumentException.
+     *
      * @return array
      */
     public function exceptionProvider()
@@ -198,7 +204,7 @@ class ExpressionTest extends \PHPUnit_Framework_TestCase
             [[], 'InvalidArgumentException', 'Expression should be of string type! array given.'],
             ['* * * *', 'InvalidArgumentException', 'Expression has 4 parts (separated by space). Expected 5 or 6 parts (year part is optional)'],
             ['* * * * * * *', 'InvalidArgumentException', 'Expression has 7 parts (separated by space). Expected 5 or 6 parts (year part is optional)'],
-            ['invalid', 'InvalidArgumentException', 'Expression has 1 parts (separated by space). Expected 5 or 6 parts (year part is optional)']
+            ['invalid', 'InvalidArgumentException', 'Expression has 1 parts (separated by space). Expected 5 or 6 parts (year part is optional)'],
         ];
     }
 }

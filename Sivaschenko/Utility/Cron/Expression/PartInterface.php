@@ -8,27 +8,27 @@ namespace Sivaschenko\Utility\Cron\Expression;
 interface PartInterface
 {
     /**
-     * Name of expression part (minute, hour, day of month, month, day of week, year)
+     * Name of expression part (minute, hour, day of month, month, day of week, year).
      */
     const NAME = 'part';
 
     /**
-     * Prefix applicable to expression part (at, on, in, etc.)
+     * Prefix applicable to expression part (at, on, in, etc.).
      */
     const PREFIX = 'at';
 
     /**
-     * Suffix applicable to expression part (minute, hour, etc.)
+     * Suffix applicable to expression part (minute, hour, etc.).
      */
     const SUFFIX = '';
 
     /**
-     * Maximum integer value applicable for expression part
+     * Maximum integer value applicable for expression part.
      */
     const MAX_INT_VALUE = 7;
 
     /**
-     * Minimum integer value applicable for expression part
+     * Minimum integer value applicable for expression part.
      */
     const MIN_INT_VALUE = 0;
 

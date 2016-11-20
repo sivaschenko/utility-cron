@@ -37,6 +37,7 @@ abstract class AbstractType implements TypeInterface
 
     /**
      * AbstractType constructor.
+     *
      * @param string $value
      * @param string $partClass
      */
@@ -71,6 +72,7 @@ abstract class AbstractType implements TypeInterface
 
     /**
      * @param string $value
+     *
      * @return bool
      */
     public static function isApplicable($value)
@@ -78,6 +80,7 @@ abstract class AbstractType implements TypeInterface
         if (empty(static::DELIMITER)) {
             return true;
         }
+
         return false !== strpos($value, static::DELIMITER);
     }
 
@@ -90,11 +93,13 @@ abstract class AbstractType implements TypeInterface
         foreach ($this->parts as $part) {
             $messages = array_merge($messages, $part->getValidationMessages());
         }
+
         return $messages;
     }
 
     /**
      * @param string|int $value
+     *
      * @return bool
      */
     protected function isInteger($value)
@@ -103,15 +108,13 @@ abstract class AbstractType implements TypeInterface
     }
 
     /**
-     * @return string
-     */
-    /**
      * @param int $value
+     *
      * @return string
      */
     protected function getValueWithOrdinalSuffix($value)
     {
-        return \DateTime::createFromFormat('j', (int)$value)->format('jS');
+        return \DateTime::createFromFormat('j', (int) $value)->format('jS');
     }
 
     /**

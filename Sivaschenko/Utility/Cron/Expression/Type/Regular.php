@@ -16,6 +16,7 @@ class Regular extends AbstractType
         if ($this->getFirstPart()->getName() != 'minute' && in_array($string, ['every', 'any'])) {
             return '';
         }
-        return $this->getFirstPart()->getPrefix() . $string . $this->getFirstPart()->getSuffix();
+
+        return $this->getFirstPart()->getPrefix().$string.$this->getFirstPart()->getSuffix();
     }
 }

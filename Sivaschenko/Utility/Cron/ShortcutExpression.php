@@ -11,14 +11,14 @@ class ShortcutExpression implements ExpressionInterface
      * @var array
      */
     private static $shortcuts = [
-        '@reboot' => 'On Reboot.',
+        '@reboot'   => 'On Reboot.',
         '@midnight' => 'At Midnight.',
-        '@daily' => 'At Midnight.',
-        '@yearly' => '1st January at midnight.',
+        '@daily'    => 'At Midnight.',
+        '@yearly'   => '1st January at midnight.',
         '@annually' => '1st January at midnight.',
-        '@monthly' => '1st each month at midnight.',
-        '@weekly' => 'On Monday at midnight.',
-        '@hourly' => 'Each Hour.'
+        '@monthly'  => '1st each month at midnight.',
+        '@weekly'   => 'On Monday at midnight.',
+        '@hourly'   => 'Each Hour.',
     ];
 
     /**
@@ -28,6 +28,7 @@ class ShortcutExpression implements ExpressionInterface
 
     /**
      * ShortcutExpression constructor.
+     *
      * @param string $value
      */
     public function __construct($value)

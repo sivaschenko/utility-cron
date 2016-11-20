@@ -20,7 +20,7 @@ class Increment extends AbstractType
             $this->getFirstPart()->getName(),
             in_array($this->getFirstPart()->getValue(), ['*', '?'])
                 ? ''
-                : ' starting from ' . $this->getFirstPart()->getVerbalString()
+                : ' starting from '.$this->getFirstPart()->getVerbalString()
         );
     }
 

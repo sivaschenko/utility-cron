@@ -45,6 +45,7 @@ class Range extends AbstractType
             }
             $messages = array_merge($messages, $this->getSecondPart()->getValidationMessages());
         }
+
         return $messages;
     }
 }

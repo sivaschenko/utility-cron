@@ -33,6 +33,7 @@ class DayOfWeek extends AbstractPart
             return $date->format('l');
         }
         $string = date('l', strtotime("Sunday + $this->value Days"));
+
         return $string ? $string : $this->value;
     }
 

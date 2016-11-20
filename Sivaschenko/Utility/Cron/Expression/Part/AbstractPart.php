@@ -10,42 +10,42 @@ use Sivaschenko\Utility\Cron\Expression\PartInterface;
 abstract class AbstractPart implements PartInterface
 {
     /**
-     * Expression that can be used instead of part value
+     * Expression that can be used instead of part value.
      *
      * @var string[]
      */
     protected $replacements = ['*' => 'every', '?' => 'any'];
 
     /**
-     * Suffixes that can be added to expression value
+     * Suffixes that can be added to expression value.
      *
      * @var string[]
      */
     protected $valueSuffixes = [];
 
     /**
-     * Minimum valid integer value for expression part
+     * Minimum valid integer value for expression part.
      *
      * @var int
      */
     protected $minValue;
 
     /**
-     * Maximum valid integer value for expression part
+     * Maximum valid integer value for expression part.
      *
      * @var int
      */
     protected $maxValue;
 
     /**
-     * Expression part (without suffix)
+     * Expression part (without suffix).
      *
      * @var string
      */
     protected $value;
 
     /**
-     * Expression value suffix
+     * Expression value suffix.
      *
      * @var string
      */
@@ -80,6 +80,7 @@ abstract class AbstractPart implements PartInterface
         if ($this->valueSuffix) {
             return sprintf($this->valueSuffixes[$this->valueSuffix], $this->_getVerbalString());
         }
+
         return $this->_getVerbalString();
     }
 
@@ -136,9 +137,9 @@ abstract class AbstractPart implements PartInterface
                     $this->value,
                     static::MIN_INT_VALUE,
                     static::MAX_INT_VALUE,
-                    empty($replacements) ? '' : ', keywords: "' . implode('", "', $replacements) . '"',
-                    empty($this->getAllowedStringValues()) ? '' : ' or string values: "' . implode('", "', $this->getAllowedStringValues()) . '".',
-                    empty($suffixes) ? '' : ' Allowed suffixes: "' . implode('", "', $suffixes) . '"'
+                    empty($replacements) ? '' : ', keywords: "'.implode('", "', $replacements).'"',
+                    empty($this->getAllowedStringValues()) ? '' : ' or string values: "'.implode('", "', $this->getAllowedStringValues()).'".',
+                    empty($suffixes) ? '' : ' Allowed suffixes: "'.implode('", "', $suffixes).'"'
                 );
             }
         }
@@ -159,11 +160,12 @@ abstract class AbstractPart implements PartInterface
      */
     public function getValueWithOrdinalSuffix()
     {
-        $value = (int)$this->value;
-        $ends = array('th', 'st', 'nd', 'rd', 'th', 'th', 'th', 'th', 'th', 'th');
+        $value = (int) $this->value;
+        $ends = ['th', 'st', 'nd', 'rd', 'th', 'th', 'th', 'th', 'th', 'th'];
+
         return (($value % 100) >= 11 && ($value % 100) <= 13)
-            ? $value . 'th'
-            : $value . $ends[$value % 10];
+            ? $value.'th'
+            : $value.$ends[$value % 10];
     }
 
     public function getName()
@@ -176,7 +178,7 @@ abstract class AbstractPart implements PartInterface
      */
     public function getSuffix()
     {
-        return static::SUFFIX ? ' ' . static::SUFFIX : '';
+        return static::SUFFIX ? ' '.static::SUFFIX : '';
     }
 
     /**
@@ -184,6 +186,6 @@ abstract class AbstractPart implements PartInterface
      */
     public function getPrefix()
     {
-        return static::PREFIX ? static::PREFIX . ' ' : '';
+        return static::PREFIX ? static::PREFIX.' ' : '';
     }
 }

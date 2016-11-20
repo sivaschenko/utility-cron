@@ -6,7 +6,6 @@
 namespace Sivaschenko\Utility\Cron;
 
 use Sivaschenko\Utility\Cron\Expression\PartInterface;
-use Sivaschenko\Utility\Cron\Expression\Type\Regular;
 use Sivaschenko\Utility\Cron\Expression\TypeInterface;
 
 class Expression implements ExpressionInterface
@@ -19,7 +18,7 @@ class Expression implements ExpressionInterface
         Expression\Type\Increment::class,
         Expression\Type\Selection::class,
         Expression\Type\Each::class,
-        Expression\Type\Regular::class
+        Expression\Type\Regular::class,
     ];
 
     /**
@@ -31,7 +30,7 @@ class Expression implements ExpressionInterface
         Expression\Part\Day::class,
         Expression\Part\Month::class,
         Expression\Part\DayOfWeek::class,
-        Expression\Part\Year::class
+        Expression\Part\Year::class,
     ];
 
     /**
@@ -41,6 +40,7 @@ class Expression implements ExpressionInterface
 
     /**
      * Expression constructor.
+     *
      * @param string $value
      */
     public function __construct($value)
@@ -76,9 +76,11 @@ class Expression implements ExpressionInterface
 
     /**
      * @param string $part
-     * @param int $index
-     * @return TypeInterface
+     * @param int    $index
+     *
      * @throws \Exception
+     *
+     * @return TypeInterface
      */
     private function createPart($part, $index)
     {
@@ -121,7 +123,7 @@ class Expression implements ExpressionInterface
             }
 
             return sprintf(
-                $format . '.',
+                $format.'.',
                 $hour->getValue(),
                 $minute->getValue(),
                 implode(', ', $stringParts)
@@ -130,10 +132,10 @@ class Expression implements ExpressionInterface
 
         $stringParts = [];
         foreach ($this->expressionParts as $part) {
-            $stringParts[] = $part->getVerbalString();;
+            $stringParts[] = $part->getVerbalString();
         }
 
-        return ucfirst(implode(', ', array_filter($stringParts))) . '.';
+        return ucfirst(implode(', ', array_filter($stringParts))).'.';
     }
 
     /**
@@ -144,6 +146,7 @@ class Expression implements ExpressionInterface
         if (empty($this->getValidationMessages())) {
             return true;
         }
+
         return false;
     }
 
@@ -156,6 +159,7 @@ class Expression implements ExpressionInterface
         foreach ($this->expressionParts as $part) {
             $messages = array_merge($messages, $part->getValidationMessages());
         }
+
         return $messages;
     }
 }

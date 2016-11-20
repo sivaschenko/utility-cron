@@ -11,14 +11,14 @@ namespace Sivaschenko\Utility\Cron;
 interface ExpressionInterface
 {
     /**
-     * Get human readable description of cron expression
+     * Get human readable description of cron expression.
      *
      * @return string
      */
     public function getVerbalString();
 
     /**
-     * Is expression valid
+     * Is expression valid.
      *
      * @return bool
      */
@@ -26,7 +26,7 @@ interface ExpressionInterface
 
     /**
      * If expression is not valid will return array of messages with details
-     * If expression is valid will return empty array
+     * If expression is valid will return empty array.
      *
      * @return string[]
      */
