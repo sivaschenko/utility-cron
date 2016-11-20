@@ -6,7 +6,7 @@
 The PHP Cron Library can be used to get human readable cron expression description and detailed validation messages.
 Any level of expression complexity is handled.
 
-# Code example
+# Code examples
 
 Human readable cron expression description example:
 
@@ -55,8 +55,16 @@ Examples of cron expression validation:
 
 # Installation
 
+Add dependency on library to composer.json and update or execute the following command:
+
     composer require sivaschenko/utility-cron
     
+Be sure to require composer generated autoload in your project:
+
+    require 'vendor/autoload.php';
+    
+Now see "Code examples" for usage instructions.
+
 # Test Coverage
 
 Verbal translation, validation and even exceptions are covered with integration tests.
