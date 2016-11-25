@@ -1,6 +1,6 @@
 <?php
 /**
- * Crafted with ♥ for developers
+ * Crafted with ♥ for developers.
  *
  * Copyright © 2016, Sergii Ivashchenko
  * See LICENSE for license details.
@@ -10,7 +10,7 @@ namespace Sivaschenko\Utility\Cron\Expression\Type;
 class Range extends AbstractType
 {
     /**
-     * Parts delimiter
+     * Parts delimiter.
      */
     const DELIMITER = '-';
 
@@ -49,6 +49,7 @@ class Range extends AbstractType
             }
             $messages = array_merge($messages, $this->getFirstPart()->getValidationMessages());
         }
+
         return $messages;
     }
 
@@ -66,6 +67,7 @@ class Range extends AbstractType
             }
             $messages = array_merge($messages, $this->getSecondPart()->getValidationMessages());
         }
+
         return $messages;
     }
 }

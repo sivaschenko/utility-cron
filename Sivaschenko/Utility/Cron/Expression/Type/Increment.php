@@ -1,6 +1,6 @@
 <?php
 /**
- * Crafted with ♥ for developers
+ * Crafted with ♥ for developers.
  *
  * Copyright © 2016, Sergii Ivashchenko
  * See LICENSE for license details.
@@ -10,7 +10,7 @@ namespace Sivaschenko\Utility\Cron\Expression\Type;
 class Increment extends AbstractType
 {
     /**
-     * Parts delimiter
+     * Parts delimiter.
      */
     const DELIMITER = '/';
 
@@ -27,6 +27,7 @@ class Increment extends AbstractType
         if (!in_array($this->getFirstPart()->getValue(), ['*', '?'])) {
             $string .= ' starting from '.$this->getFirstPart()->getVerbalString();
         }
+
         return $string;
     }
 
@@ -60,6 +61,7 @@ class Increment extends AbstractType
         } elseif (!$this->isInteger($this->getSecondPart()->getValue())) {
             return [sprintf('Second part of expression "%s" can only be integer!', $this->value)];
         }
+
         return [];
     }
 }

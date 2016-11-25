@@ -1,6 +1,6 @@
 <?php
 /**
- * Crafted with ♥ for developers
+ * Crafted with ♥ for developers.
  *
  * Copyright © 2016, Sergii Ivashchenko
  * See LICENSE for license details.
@@ -10,7 +10,7 @@ namespace Sivaschenko\Utility\Cron\Expression\Type;
 class Each extends AbstractType
 {
     /**
-     * Parts delimiter
+     * Parts delimiter.
      */
     const DELIMITER = '#';
 
@@ -70,6 +70,7 @@ class Each extends AbstractType
                 );
             }
         }
+
         return $messages;
     }
 }

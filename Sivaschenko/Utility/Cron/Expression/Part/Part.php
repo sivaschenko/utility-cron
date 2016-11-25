@@ -1,6 +1,6 @@
 <?php
 /**
- * Crafted with ♥ for developers
+ * Crafted with ♥ for developers.
  *
  * Copyright © 2016, Sergii Ivashchenko
  * See LICENSE for license details.
@@ -89,6 +89,7 @@ class Part implements PartInterface
         if (!$this->renderer) {
             $this->renderer = new Renderer($this->name, $this->getConfig());
         }
+
         return $this->renderer->getVerbalString($this->getValue(), $this->suffix);
     }
 
@@ -100,6 +101,7 @@ class Part implements PartInterface
         if (!$this->validator) {
             $this->validator = new Validator($this->name, $this->getConfig());
         }
+
         return $this->validator->getValidationMessages($this->getValue());
     }
 
@@ -111,6 +113,7 @@ class Part implements PartInterface
         if (!$this->config) {
             $this->config = new Config();
         }
+
         return $this->config;
     }
 

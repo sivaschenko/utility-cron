@@ -1,6 +1,6 @@
 <?php
 /**
- * Crafted with ♥ for developers
+ * Crafted with ♥ for developers.
  *
  * Copyright © 2016, Sergii Ivashchenko
  * See LICENSE for license details.

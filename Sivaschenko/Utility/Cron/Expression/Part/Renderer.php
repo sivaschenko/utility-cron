@@ -1,6 +1,6 @@
 <?php
 /**
- * Crafted with ♥ for developers
+ * Crafted with ♥ for developers.
  *
  * Copyright © 2016, Sergii Ivashchenko
  * See LICENSE for license details.
@@ -32,6 +32,7 @@ class Renderer
     /**
      * @param string $value
      * @param string $suffix
+     *
      * @return string
      */
     public function getVerbalString($value, $suffix)
@@ -50,6 +51,7 @@ class Renderer
 
     /**
      * @param string $value
+     *
      * @return string
      */
     private function render($value)
@@ -72,6 +74,7 @@ class Renderer
 
     /**
      * @param string $value
+     *
      * @return string
      */
     private function getDayOfWeekVerbalString($value)
@@ -87,6 +90,7 @@ class Renderer
 
     /**
      * @param string $value
+     *
      * @return string
      */
     private function getMonthVerbalString($value)
@@ -104,6 +108,7 @@ class Renderer
 
     /**
      * @param string $value
+     *
      * @return string
      */
     private function getValueWithOrdinalSuffix($value)
