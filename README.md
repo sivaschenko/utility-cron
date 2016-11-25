@@ -70,3 +70,7 @@ Now see "Code examples" for usage instructions.
 Verbal translation, validation and even exceptions are covered with integration tests.
 
 See [\Sivaschenko\Utility\Cron\Test\ExpressionTest](//github.com/sivaschenko/utility-cron/blob/master/Sivaschenko/Utility/Cron/Test/ExpressionTest.php) for details.
+
+---
+
+Crafted with ♥ for developers.

@@ -1,5 +1,7 @@
 <?php
 /**
+ * Crafted with ♥ for developers
+ *
  * Copyright © 2016, Sergii Ivashchenko
  * See LICENSE for license details.
  */
@@ -7,6 +9,9 @@ namespace Sivaschenko\Utility\Cron\Expression\Type;
 
 class Selection extends AbstractType
 {
+    /**
+     * Parts delimiter
+     */
     const DELIMITER = ',';
 
     /**
@@ -19,7 +24,12 @@ class Selection extends AbstractType
             $values[] = $part->getVerbalString();
         }
 
-        return $this->getVerboseList($values).$this->getFirstPart()->getSuffix();
+        return trim(sprintf(
+            '%s %s %s',
+            $this->getFirstPart()->getPrefix(),
+            $this->getVerboseList($values),
+            $this->getFirstPart()->getSuffix()
+        ));
     }
 
     /**
@@ -31,7 +41,7 @@ class Selection extends AbstractType
     {
         $last = array_pop($values);
 
-        return $this->getFirstPart()->getPrefix().implode(', ', $values).' and '.$last;
+        return implode(', ', $values).' and '.$last;
     }
 
     /**

@@ -1,5 +1,7 @@
 <?php
 /**
+ * Crafted with ♥ for developers
+ *
  * Copyright © 2016, Sergii Ivashchenko
  * See LICENSE for license details.
  */
@@ -10,7 +12,7 @@ class ShortcutExpression implements ExpressionInterface
     /**
      * @var array
      */
-    private static $shortcuts = [
+    private $shortcuts = [
         '@reboot'   => 'On Reboot.',
         '@midnight' => 'At Midnight.',
         '@daily'    => 'At Midnight.',
@@ -41,10 +43,10 @@ class ShortcutExpression implements ExpressionInterface
      */
     public function getValidationMessages()
     {
-        return ($this->isValid()) ? [] : [sprintf(
+        return $this->isValid() ? [] : [sprintf(
             'Unknown shortcut expression "%s"! List of valid shortcut expressions: "%s".',
             $this->value,
-            implode('", "', array_keys(self::$shortcuts))
+            implode('", "', array_keys($this->shortcuts))
         )];
     }
 
@@ -53,7 +55,7 @@ class ShortcutExpression implements ExpressionInterface
      */
     public function isValid()
     {
-        return isset(self::$shortcuts[$this->value]);
+        return isset($this->shortcuts[$this->value]);
     }
 
     /**
@@ -61,7 +63,7 @@ class ShortcutExpression implements ExpressionInterface
      */
     public function getVerbalString()
     {
-        return isset(self::$shortcuts[$this->value]) ? self::$shortcuts[$this->value] : '';
+        return isset($this->shortcuts[$this->value]) ? $this->shortcuts[$this->value] : '';
     }
 
     /**

@@ -1,5 +1,7 @@
 <?php
 /**
+ * Crafted with ♥ for developers
+ *
  * Copyright © 2016, Sergii Ivashchenko
  * See LICENSE for license details.
  */
@@ -7,6 +9,9 @@ namespace Sivaschenko\Utility\Cron\Expression\Type;
 
 class Range extends AbstractType
 {
+    /**
+     * Parts delimiter
+     */
     const DELIMITER = '-';
 
     /**
@@ -27,6 +32,14 @@ class Range extends AbstractType
      */
     public function getValidationMessages()
     {
+        return array_merge($this->getFirstPartValidationMessages(), $this->getSecondPartValidationMessages());
+    }
+
+    /**
+     * @return \string[]
+     */
+    private function getFirstPartValidationMessages()
+    {
         $messages = [];
         if (empty($this->getFirstPart()->getValue())) {
             $messages[] = sprintf('Missing first part of "range" expression ("%s")', $this->value);
@@ -36,8 +49,16 @@ class Range extends AbstractType
             }
             $messages = array_merge($messages, $this->getFirstPart()->getValidationMessages());
         }
-        $eachValue = $this->getSecondPart()->getValue();
-        if (empty($eachValue)) {
+        return $messages;
+    }
+
+    /**
+     * @return \string[]
+     */
+    private function getSecondPartValidationMessages()
+    {
+        $messages = [];
+        if (empty($this->getSecondPart()->getValue())) {
             $messages[] = sprintf('Missing second part of "range" expression ("%s")', $this->value);
         } else {
             if ($this->getSecondPart()->getValue() == 'W') {
@@ -45,7 +66,6 @@ class Range extends AbstractType
             }
             $messages = array_merge($messages, $this->getSecondPart()->getValidationMessages());
         }
-
         return $messages;
     }
 }

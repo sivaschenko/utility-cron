@@ -1,5 +1,7 @@
 <?php
 /**
+ * Crafted with ♥ for developers
+ *
  * Copyright © 2016, Sergii Ivashchenko
  * See LICENSE for license details.
  */
@@ -7,6 +9,9 @@ namespace Sivaschenko\Utility\Cron\Expression\Type;
 
 class Each extends AbstractType
 {
+    /**
+     * Parts delimiter
+     */
     const DELIMITER = '#';
 
     /**
@@ -16,7 +21,7 @@ class Each extends AbstractType
     {
         return sprintf(
             'every %s %s',
-            $this->getSecondPart()->getValueWithOrdinalSuffix(),
+            $this->getValueWithOrdinalSuffix($this->getSecondPart()->getValue()),
             $this->getFirstPart()->getVerbalString()
         );
     }
@@ -26,15 +31,30 @@ class Each extends AbstractType
      */
     public function getValidationMessages()
     {
-        $messages = [];
+        return array_merge($this->getFirstPartValidationMessages(), $this->getSecondPartValidationMessages());
+    }
+
+    /**
+     * @return \string[]
+     */
+    private function getFirstPartValidationMessages()
+    {
         if (empty($this->getFirstPart()->getValue())) {
-            $messages[] = sprintf('Missing first part of "each" expression ("%s")', $this->value);
+            return [sprintf('Missing first part of "each" expression ("%s")', $this->value)];
         } else {
-            $messages = array_merge($messages, $this->getFirstPart()->getValidationMessages());
+            return $this->getFirstPart()->getValidationMessages();
         }
+    }
+
+    /**
+     * @return \string[]
+     */
+    private function getSecondPartValidationMessages()
+    {
+        $messages = [];
         $eachValue = $this->getSecondPart()->getValue();
         if (empty($eachValue)) {
-            $messages[] = sprintf('Missing second part of "each" expression ("%s")', $this->value);
+            return [sprintf('Missing second part of "each" expression ("%s")', $this->value)];
         } else {
             if (!$this->isInteger($eachValue)) {
                 $messages[] = sprintf(
@@ -50,7 +70,6 @@ class Each extends AbstractType
                 );
             }
         }
-
         return $messages;
     }
 }

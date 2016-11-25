@@ -1,5 +1,7 @@
 <?php
 /**
+ * Crafted with ♥ for developers
+ *
  * Copyright © 2016, Sergii Ivashchenko
  * See LICENSE for license details.
  */
@@ -25,12 +27,12 @@ class Expression implements ExpressionInterface
      * @var string[]|PartInterface[]
      */
     private $parts = [
-        Expression\Part\Minute::class,
-        Expression\Part\Hour::class,
-        Expression\Part\Day::class,
-        Expression\Part\Month::class,
-        Expression\Part\DayOfWeek::class,
-        Expression\Part\Year::class,
+        'minute',
+        'hour',
+        'day of month',
+        'month',
+        'day of week',
+        'year',
     ];
 
     /**
@@ -90,12 +92,10 @@ class Expression implements ExpressionInterface
             }
         }
 
-        $partClass = $this->parts[$index];
-
         throw new \Exception(
             sprintf(
                 'Cannot identify type of "%s" part of expression - ""!',
-                $partClass::NAME,
+                $this->parts[$index],
                 $part
             )
         );
@@ -143,11 +143,7 @@ class Expression implements ExpressionInterface
      */
     public function isValid()
     {
-        if (empty($this->getValidationMessages())) {
-            return true;
-        }
-
-        return false;
+        return empty($this->getValidationMessages());
     }
 
     /**

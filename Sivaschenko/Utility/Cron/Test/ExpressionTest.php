@@ -1,5 +1,7 @@
 <?php
 /**
+ * Crafted with ♥ for developers
+ *
  * Copyright © 2016, Sergii Ivashchenko
  * See LICENSE for license details.
  */
@@ -168,7 +170,7 @@ class ExpressionTest extends \PHPUnit_Framework_TestCase
             ['* * * * * 1969', ['Year expression part value "1969" is less than min allowed "1970"']],
 
             ['60 * * * * *', ['Minute expression part value "60" is greater than max allowed "59"']],
-            ['fd * * * * *', ['Minute expression part value "fd" is not valid! Allowed values are integers from 0 to 59, keywords: "*", "?"']],
+            ['fd * * * * *', ['Minute expression part value "fd" is not valid! Allowed values are: numbers from 0 to 59; special values: "*", "?".']],
             ['* 24 * * * *', ['Hour expression part value "24" is greater than max allowed "23"']],
             ['* * 32 * * *', ['Day of month expression part value "32" is greater than max allowed "31"']],
             ['* * * 13 * *', ['Month expression part value "13" is greater than max allowed "12"']],
@@ -180,7 +182,7 @@ class ExpressionTest extends \PHPUnit_Framework_TestCase
 
             ['@invalid', ['Unknown shortcut expression "@invalid"! List of valid shortcut expressions: "@reboot", "@midnight", "@daily", "@yearly", "@annually", "@monthly", "@weekly", "@hourly".']],
 
-            ['* * 4L * * *', ['Day of month expression part value "4L" is not valid! Allowed values are integers from 1 to 31, keywords: "*", "?", "W", "L" Allowed suffixes: "W"']],
+            ['* * 4L * * *', ['Day of month expression part value "4L" is not valid! Allowed values are: numbers from 1 to 31; special values: "*", "?", "W", "L". Allowed suffixes are: "W".']],
             ['* * * * # *', ['Missing first part of "each" expression ("#")', 'Missing second part of "each" expression ("#")']],
             ['* * * * #6 *', ['Missing first part of "each" expression ("#6")', 'Second part of expression "#6" cannot be greater than 5 (maximum number of weeks in a month)!']],
             ['* * * * 2# *', ['Missing second part of "each" expression ("2#")']],

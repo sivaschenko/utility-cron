@@ -1,5 +1,7 @@
 <?php
 /**
+ * Crafted with ♥ for developers
+ *
  * Copyright © 2016, Sergii Ivashchenko
  * See LICENSE for license details.
  */
@@ -12,11 +14,12 @@ class Regular extends AbstractType
      */
     public function getVerbalString()
     {
-        $string = $this->getFirstPart()->getVerbalString();
-        if ($this->getFirstPart()->getName() != 'minute' && in_array($string, ['every', 'any'])) {
+        $part = $this->getFirstPart();
+
+        if ($part->getName() != 'minute' && in_array($part->getValue(), ['*', '?'])) {
             return '';
         }
 
-        return $this->getFirstPart()->getPrefix().$string.$this->getFirstPart()->getSuffix();
+        return trim(sprintf('%s %s %s', $part->getPrefix(), $part->getVerbalString(), $part->getSuffix()));
     }
 }

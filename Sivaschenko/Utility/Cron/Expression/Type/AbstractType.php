@@ -1,20 +1,18 @@
 <?php
 /**
+ * Crafted with ♥ for developers
+ *
  * Copyright © 2016, Sergii Ivashchenko
  * See LICENSE for license details.
  */
 namespace Sivaschenko\Utility\Cron\Expression\Type;
 
+use Sivaschenko\Utility\Cron\Expression\Part\Part;
 use Sivaschenko\Utility\Cron\Expression\PartInterface;
 use Sivaschenko\Utility\Cron\Expression\TypeInterface;
 
 abstract class AbstractType implements TypeInterface
 {
-    /**
-     * @var string|PartInterface
-     */
-    protected $partClass;
-
     /**
      * @var string
      */
@@ -39,18 +37,17 @@ abstract class AbstractType implements TypeInterface
      * AbstractType constructor.
      *
      * @param string $value
-     * @param string $partClass
+     * @param string $name
      */
-    public function __construct($value, $partClass)
+    public function __construct($value, $name)
     {
         $this->value = $value;
-        $this->partClass = $partClass;
         if (!empty(static::DELIMITER)) {
             foreach (explode(static::DELIMITER, $value) as $part) {
-                $this->parts[] = new $partClass($part);
+                $this->parts[] = new Part($name, $part);
             }
         } else {
-            $this->parts[] = new $partClass($value);
+            $this->parts[] = new Part($name, $value);
         }
     }
 
@@ -114,7 +111,11 @@ abstract class AbstractType implements TypeInterface
      */
     protected function getValueWithOrdinalSuffix($value)
     {
-        return \DateTime::createFromFormat('j', (int) $value)->format('jS');
+        $ends = ['th', 'st', 'nd', 'rd', 'th', 'th', 'th', 'th', 'th', 'th'];
+
+        return (($value % 100) >= 11 && ($value % 100) <= 13)
+            ? $value.'th'
+            : $value.$ends[$value % 10];
     }
 
     /**
