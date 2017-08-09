@@ -1,5 +1,6 @@
 # PHP Cron Library
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/8bc17809565d45a7a11ae0b67e29d77f)](https://www.codacy.com/app/serg.ivashchenko/utility-cron?utm_source=github.com&utm_medium=referral&utm_content=sivaschenko/utility-cron&utm_campaign=badger)
 [![Build Status](https://travis-ci.org/sivaschenko/utility-cron.svg?branch=master)](https://travis-ci.org/sivaschenko/utility-cron)
 [![StyleCI](https://styleci.io/repos/73108022/shield?style=flat)](https://styleci.io/repos/73108022)
 [![codecov](https://codecov.io/gh/sivaschenko/utility-cron/branch/master/graph/badge.svg)](https://codecov.io/gh/sivaschenko/utility-cron)
