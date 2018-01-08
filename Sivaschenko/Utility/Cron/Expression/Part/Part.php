@@ -5,6 +5,7 @@
  * Copyright © 2016, Sergii Ivashchenko
  * See LICENSE for license details.
  */
+
 namespace Sivaschenko\Utility\Cron\Expression\Part;
 
 use Sivaschenko\Utility\Cron\Expression\PartInterface;

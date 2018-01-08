@@ -5,6 +5,7 @@
  * Copyright © 2016, Sergii Ivashchenko
  * See LICENSE for license details.
  */
+
 namespace Sivaschenko\Utility\Cron\Test;
 
 use Sivaschenko\Utility\Cron\ExpressionFactory;
