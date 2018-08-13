@@ -8,9 +8,10 @@
 
 namespace Sivaschenko\Utility\Cron\Test;
 
+use PHPUnit\Framework\TestCase;
 use Sivaschenko\Utility\Cron\ExpressionFactory;
 
-class ExpressionTest extends \PHPUnit_Framework_TestCase
+class ExpressionTest extends TestCase
 {
     /**
      * @dataProvider expressionProvider
@@ -58,7 +59,8 @@ class ExpressionTest extends \PHPUnit_Framework_TestCase
      */
     public function testException($expression, $exceptionClass, $exceptionMessage)
     {
-        $this->setExpectedException($exceptionClass, $exceptionMessage);
+        $this->expectException($exceptionClass);
+        $this->expectExceptionMessage($exceptionMessage);
         ExpressionFactory::getExpression($expression);
     }
 
