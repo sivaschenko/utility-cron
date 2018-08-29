@@ -4,7 +4,6 @@
 [![Build Status](https://travis-ci.org/sivaschenko/utility-cron.svg?branch=master)](https://travis-ci.org/sivaschenko/utility-cron)
 [![StyleCI](https://styleci.io/repos/73108022/shield?style=flat)](https://styleci.io/repos/73108022)
 [![codecov](https://codecov.io/gh/sivaschenko/utility-cron/branch/master/graph/badge.svg)](https://codecov.io/gh/sivaschenko/utility-cron)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/8bc17809565d45a7a11ae0b67e29d77f)](https://www.codacy.com/app/serg.ivashchenko/utility-cron?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=sivaschenko/utility-cron&amp;utm_campaign=Badge_Grade)
 
 The PHP Cron Library can be used to get human readable cron expression description and detailed validation messages.
 Any level of expression complexity is handled.
