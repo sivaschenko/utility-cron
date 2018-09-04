@@ -119,10 +119,11 @@ class Expression implements ExpressionInterface
                 $verbalString = $part->getVerbalString();
                 if (!empty($verbalString)) {
                     $stringParts[] = $verbalString;
-                    $format .= ', %s';
                 }
             }
-
+            if (!empty($stringParts)) {
+                $format .= ', %s';
+            }
             return sprintf(
                 $format.'.',
                 $hour->getValue(),
