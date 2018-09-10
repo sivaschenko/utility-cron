@@ -121,9 +121,11 @@ class Expression implements ExpressionInterface
                     $stringParts[] = $verbalString;
                 }
             }
+
             if (!empty($stringParts)) {
                 $format .= ', %s';
             }
+
             return sprintf(
                 $format.'.',
                 $hour->getValue(),
