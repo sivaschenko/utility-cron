@@ -148,6 +148,7 @@ class ExpressionTest extends TestCase
             ['5 4 * * *', 'At 04:05.'],
             ['5 4 8 * *', 'At 04:05, on 8th day of month.'],
             ['5 4 1 * *', 'At 04:05, on 1st day of month.'],
+            ['5 4 1 1 *', 'At 04:05, on 1st day of month, in January.'],
             ['* * * * *', 'At every minute.'],
             ['* * * * 1', 'At every minute, on Monday.'],
             ['* * * 1 *', 'At every minute, in January.'],
